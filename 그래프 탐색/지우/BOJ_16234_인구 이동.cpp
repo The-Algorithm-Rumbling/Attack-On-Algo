@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int N, L, R; int ans; int currNum;
+int N, L, R; int ans;
 bool moved;
 vector<vector<int>> A; vector<vector<int>> dp;
 queue<pair<int,int>> q; queue<pair<int,int>> q2;
@@ -36,6 +36,7 @@ void bfs() {
     }
 
     int newVal = sum/q2.size();
+
     while(!q2.empty()) {
         pair curr = q2.front(); q2.pop();
         int r= curr.first; int c= curr.second;
@@ -47,16 +48,14 @@ void bfs() {
 void makingIsland() {
     while(1) {
         dp.assign(N, vector<int>(N,0));
-        currNum = 1;
         moved = false;
         
         for(int r=0; r<N; r++) {
             for(int c=0; c<N; c++) {
                 if(dp[r][c] == 0) {
-                    dp[r][c] = currNum;
+                    dp[r][c] = 1;
                     q.push({r,c});
                     bfs();
-                    currNum++;
                 }
             }
         }
