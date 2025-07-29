@@ -64,12 +64,6 @@ void bfs() {
 
         if(!wasCheese[r][c]) q.push({r,c});
     }
-
-    for(int r=0; r<N; r++) {
-        for(int c=0; c<M; c++) {
-            if(wasCheese[r][c]) maps[r][c] = 0;
-        }
-    }
     
     return;
 }
