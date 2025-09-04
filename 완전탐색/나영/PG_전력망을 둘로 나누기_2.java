@@ -34,6 +34,11 @@ class Solution {
     }
     
     static void dfs(int num) {
-        
+        sum++;
+        for (int i : list[num]) {
+            if (vis[i] || (i == x && num == y) || (num == x && i == y)) continue;
+            vis[i] = true;
+            dfs(i);
+        }
     }
 }
