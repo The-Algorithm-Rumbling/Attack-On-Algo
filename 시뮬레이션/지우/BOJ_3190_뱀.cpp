@@ -3,6 +3,7 @@
 #include <map>
 #include <queue>
 #include <tuple>
+#include <deque>
 
 using namespace std;
 int N, K, L;
@@ -25,7 +26,7 @@ int change(int dir, char C) {
 int bfs() {
     q.push({0,0,0,0});
     maps[0][0] = 1;
-    vector<pair<int,int>> tracks;
+    deque<pair<int,int>> tracks;
 
     while(!q.empty()) {
         auto [r,c,dir,cnt] = q.front(); q.pop();
@@ -43,7 +44,7 @@ int bfs() {
                 maps[nr][nc] = 1;
                 auto[sr,sc] = tracks[0];
                 maps[sr][sc] = 0;
-                tracks.erase(tracks.begin()+0);
+                tracks.pop_front();
             }
             q.push({nr,nc,dir,cnt+1});
             
