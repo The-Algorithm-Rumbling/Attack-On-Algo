@@ -1,3 +1,5 @@
+package 시뮬레이션.지우;
+
 import java.util.*;
 import java.io.*;
 
